@@ -58,3 +58,4 @@ coverage/
 htmlcov/
 .pytest_cache//frontend/node_modules/
 /backend/venv/
+docs/
