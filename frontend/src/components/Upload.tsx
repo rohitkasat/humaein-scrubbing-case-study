@@ -283,7 +283,7 @@ export default function Upload({ token, onValidated, onDataChange }:{ token:stri
             {loading ? '⏳ Processing...' : '📤 Upload & Validate'}
           </button>
           
-          {preview && (
+          {/* {preview && (
             <div style={{
               marginTop: '12px',
               fontSize: '0.8rem',
@@ -293,7 +293,7 @@ export default function Upload({ token, onValidated, onDataChange }:{ token:stri
             }}>
               ✅ Preview: {preview.length} rows ready
             </div>
-          )}
+          )} */}
         </div>
       </div>
       

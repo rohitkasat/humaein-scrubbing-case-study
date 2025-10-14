@@ -7,6 +7,11 @@ A minimal full‑stack RCM claims validator with:
 - Results dashboard (table + waterfall), metrics and admin rules view
 - Dockerized deployment
 
+
+## Backend Table Design
+
+The master table (`claims`) serves as both the raw and refined table. The `stage` field indicates whether a claim is 'raw' (uploaded, not validated) or 'refined' (validated/processed). No separate table is used for refined claims; all claims are tracked in a single table with their validation status and stage.
+
 ## Quick start (5 minutes)
 
 Prereqs: Docker + Docker Compose.

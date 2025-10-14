@@ -84,7 +84,17 @@ async def run_validate(claim_ids: list[int] = Body(...), db: Session = Depends(g
             else:
                 claim.error_explanation = None
                 claim.recommended_action = None
-            results.append({"id": claim.id, "unique_id": claim.unique_id, "errors": errs, "warnings": warns, "status": claim.status, "error_type": claim.error_type, "explain": explain})
+            results.append({
+                "id": claim.id,
+                "unique_id": claim.unique_id,
+                "errors": errs,
+                "warnings": warns,
+                "status": claim.status,
+                "error_type": claim.error_type,
+                "explain": explain,
+                "error_explanation": claim.error_explanation,
+                "recommended_action": claim.recommended_action
+            })
         db.commit()
         return {"results": results}
     except Exception as e:

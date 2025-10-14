@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Date, Float, JSON
+from sqlalchemy import Column, Integer, String, Date, Float, JSON, DateTime
+from datetime import datetime
 from app.core.database import Base
 
 class Claim(Base):
@@ -22,3 +23,5 @@ class Claim(Base):
     error_type = Column(String, nullable=True)   # none / medical / technical / both
     error_explanation = Column(String, nullable=True)
     recommended_action = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

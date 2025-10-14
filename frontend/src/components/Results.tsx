@@ -127,6 +127,20 @@ export default function Results({ results }:{ results:any[] | null }) {
                 color: '#374151',
                 borderBottom: '2px solid #e2e8f0'
               }}>Details</th>
+              <th style={{
+                padding: '16px 12px',
+                textAlign: 'left',
+                fontWeight: '600',
+                color: '#374151',
+                borderBottom: '2px solid #e2e8f0'
+              }}>Error Explanation</th>
+              <th style={{
+                padding: '16px 12px',
+                textAlign: 'left',
+                fontWeight: '600',
+                color: '#374151',
+                borderBottom: '2px solid #e2e8f0'
+              }}>Recommended Action</th>
             </tr>
           </thead>
           <tbody>
@@ -187,6 +201,12 @@ export default function Results({ results }:{ results:any[] | null }) {
                 </td>
                 <td style={{padding: '16px 12px', fontSize: '0.8rem', color: '#64748b'}}>
                   {r.explain || 'All validations passed'}
+                </td>
+                <td style={{padding: '16px 12px', fontSize: '0.8rem', color: '#64748b', whiteSpace: 'pre-line'}}>
+                  {r.error_explanation || '-'}
+                </td>
+                <td style={{padding: '16px 12px', fontSize: '0.8rem', color: '#64748b', whiteSpace: 'pre-line'}}>
+                  {r.recommended_action || '-'}
                 </td>
               </tr>
             ))}

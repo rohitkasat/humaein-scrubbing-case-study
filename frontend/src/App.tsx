@@ -72,6 +72,10 @@ export default function App() {
         ) : (
           <>
             <Upload token={token} onValidated={setResults} onDataChange={handleDataRefresh}/>
+            {/* Waterfall - Full Width */}
+              <div style={{ width: '100%' }}>
+                <Waterfall refreshTrigger={refreshTrigger}/>
+              </div>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
@@ -82,26 +86,6 @@ export default function App() {
               {/* Validation Results - Full Width */}
               <div style={{ width: '100%' }}>
                 <Results results={results}/>
-              </div>
-              
-              {/* Metrics and Waterfall - Side by Side, Equal Halves */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '32px',
-                width: '100%'
-              }}>
-                <div style={{ width: '100%' }}>
-                  <Metrics refreshTrigger={refreshTrigger}/>
-                </div>
-                <div style={{ width: '100%' }}>
-                  <Waterfall refreshTrigger={refreshTrigger}/>
-                </div>
-              </div>
-              
-              {/* Active Rules - Full Width */}
-              <div style={{ width: '100%' }}>
-                <AdminRules/>
               </div>
             </div>
           </>
