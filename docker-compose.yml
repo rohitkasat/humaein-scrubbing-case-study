@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rcm
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  api:
+    build: ./backend
+    env_file: ./backend/.env
+    depends_on: [db]
+    ports: ["8000:8000"]
+    volumes:
+      - ./backend/app:/app/app
+      - ./Humaein_Technical_Rules.pdf:/app/Humaein_Technical_Rules.pdf
+      - ./Humaein_Medical_Rules.pdf:/app/Humaein_Medical_Rules.pdf
+  fe:
+    build: ./frontend
+    env_file: ./frontend/.env
+    depends_on: [api]
+    ports: ["5173:5173"]
+volumes:
+  pgdata:
